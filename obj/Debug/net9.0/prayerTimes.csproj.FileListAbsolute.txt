@@ -1,0 +1,14 @@
+/home/sh3ri/Documents/java/prayerTimes/bin/Debug/net9.0/prayerTimes
+/home/sh3ri/Documents/java/prayerTimes/bin/Debug/net9.0/prayerTimes.deps.json
+/home/sh3ri/Documents/java/prayerTimes/bin/Debug/net9.0/prayerTimes.runtimeconfig.json
+/home/sh3ri/Documents/java/prayerTimes/bin/Debug/net9.0/prayerTimes.dll
+/home/sh3ri/Documents/java/prayerTimes/bin/Debug/net9.0/prayerTimes.pdb
+/home/sh3ri/Documents/java/prayerTimes/obj/Debug/net9.0/prayerTimes.GeneratedMSBuildEditorConfig.editorconfig
+/home/sh3ri/Documents/java/prayerTimes/obj/Debug/net9.0/prayerTimes.AssemblyInfoInputs.cache
+/home/sh3ri/Documents/java/prayerTimes/obj/Debug/net9.0/prayerTimes.AssemblyInfo.cs
+/home/sh3ri/Documents/java/prayerTimes/obj/Debug/net9.0/prayerTimes.csproj.CoreCompileInputs.cache
+/home/sh3ri/Documents/java/prayerTimes/obj/Debug/net9.0/prayerTimes.dll
+/home/sh3ri/Documents/java/prayerTimes/obj/Debug/net9.0/refint/prayerTimes.dll
+/home/sh3ri/Documents/java/prayerTimes/obj/Debug/net9.0/prayerTimes.pdb
+/home/sh3ri/Documents/java/prayerTimes/obj/Debug/net9.0/prayerTimes.genruntimeconfig.cache
+/home/sh3ri/Documents/java/prayerTimes/obj/Debug/net9.0/ref/prayerTimes.dll

@@ -7,8 +7,39 @@
   "targets": {
     ".NETCoreApp,Version=v9.0": {
       "prayerTimes/1.0.0": {
+        "dependencies": {
+          "IPGeolocation.IPGeolocation": "1.0.5",
+          "Pastel": "7.0.0"
+        },
         "runtime": {
           "prayerTimes.dll": {}
+        }
+      },
+      "IPGeolocation.IPGeolocation/1.0.5": {
+        "dependencies": {
+          "Newtonsoft.Json": "11.0.2"
+        },
+        "runtime": {
+          "lib/netcoreapp2.1/IPGeolocation.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Newtonsoft.Json/11.0.2": {
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "11.0.0.0",
+            "fileVersion": "11.0.2.21924"
+          }
+        }
+      },
+      "Pastel/7.0.0": {
+        "runtime": {
+          "lib/net9.0/Pastel.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.0.0"
+          }
         }
       }
     }
@@ -18,6 +49,27 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "IPGeolocation.IPGeolocation/1.0.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-HWdQRAKRrZStfRi97EnEWD06xWY4tyyiCDcObB8K4tnODNQJOiWyxyJQ+K6Nl8nbJ8/qXAz4ValPEhz1l0HfTw==",
+      "path": "ipgeolocation.ipgeolocation/1.0.5",
+      "hashPath": "ipgeolocation.ipgeolocation.1.0.5.nupkg.sha512"
+    },
+    "Newtonsoft.Json/11.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-IvJe1pj7JHEsP8B8J8DwlMEx8UInrs/x+9oVY+oCD13jpLu4JbJU2WCIsMRn5C4yW9+DgkaO8uiVE5VHKjpmdQ==",
+      "path": "newtonsoft.json/11.0.2",
+      "hashPath": "newtonsoft.json.11.0.2.nupkg.sha512"
+    },
+    "Pastel/7.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-g/3vT1ggvAvWq2bw9RagpyPYHnppKs+F4xw3P8cniSNRAUvtjO3/MHETTbzvXqGkZ18GoZA6xW5Zfh33jYiWLg==",
+      "path": "pastel/7.0.0",
+      "hashPath": "pastel.7.0.0.nupkg.sha512"
     }
   }
 }

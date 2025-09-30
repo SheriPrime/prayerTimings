@@ -1,7 +1,7 @@
-﻿using System.Drawing;
-using System.Text.Json;
+﻿using System.Text.Json;
 using IPGeolocation;
 using Pastel;
+using System.Drawing;
 
 class Program
 {
@@ -47,8 +47,6 @@ class Program
         return ts.ToString(@"hh\:mm");
     }
 
-
-
     static async Task Main(string[] args)
     {
         using HttpClient client = new HttpClient();
@@ -65,9 +63,6 @@ class Program
         string lat = double.Parse(location.GetLatitude()).ToString("0.0000");
         string lon = double.Parse(location.GetLongitude()).ToString("0.0000");
 
-        Console.WriteLine($"Detected Location: {location.GetCity()}, {location.GetCountryName()}");
-        Console.WriteLine($"Latitude: {lat}, Longitude: {lon}");
-
         string sect = selectSect();
         string prayerUrl = $"https://www.ummahapi.com/api/prayer-times?lat={lat}&lng={lon}&madhab={sect}&method=MuslimWorldLeague";
 
@@ -75,6 +70,8 @@ class Program
         JsonElement prayerDoc = JsonDocument.Parse(prayerJson).RootElement;
         JsonElement timings = prayerDoc.GetProperty("data").GetProperty("prayer_times");
 
+        Console.WriteLine($"\nDetected Location: {location.GetCity()}, {location.GetCountryName()}");
+        Console.WriteLine($"Latitude: {lat}, Longitude: {lon}");
         Console.WriteLine("\nPrayer Times:");
 
         foreach (Salah salah in Enum.GetValues<Salah>())

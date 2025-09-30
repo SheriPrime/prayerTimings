@@ -40,6 +40,7 @@ class Program
             _ => Sect.Hanafi.ToString(),
         };
     }
+    
     static string offsetTime(string time, double offset)
     {
         TimeSpan ts = TimeSpan.Parse(time);

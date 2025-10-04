@@ -2,6 +2,7 @@
 using IPGeolocation;
 using Pastel;
 using System.Drawing;
+using System;
 
 class Program
 {
@@ -22,7 +23,7 @@ class Program
         Hanbali
     }
 
-    static String selectSect()
+    static string selectSect()
     {
         Console.WriteLine("Select your Islamic sect:");
         Console.WriteLine("1. Shafi");
@@ -40,7 +41,7 @@ class Program
             _ => Sect.Hanafi.ToString(),
         };
     }
-    
+
     static string offsetTime(string time, double offset)
     {
         TimeSpan ts = TimeSpan.Parse(time);
@@ -65,23 +66,30 @@ class Program
         string lon = double.Parse(location.GetLongitude()).ToString("0.0000");
 
         string sect = selectSect();
-        string prayerUrl = $"https://www.ummahapi.com/api/prayer-times?lat={lat}&lng={lon}&madhab={sect}&method=MuslimWorldLeague";
-
-        string prayerJson = await client.GetStringAsync(prayerUrl);
-        JsonElement prayerDoc = JsonDocument.Parse(prayerJson).RootElement;
-        JsonElement timings = prayerDoc.GetProperty("data").GetProperty("prayer_times");
-
-        Console.WriteLine($"\nDetected Location: {location.GetCity()}, {location.GetCountryName()}");
-        Console.WriteLine($"Latitude: {lat}, Longitude: {lon}");
-        Console.WriteLine("\nPrayer Times:");
-
-        foreach (Salah salah in Enum.GetValues<Salah>())
+        try
         {
-            string prayerName = salah.ToString();
-            string adjustedTime = offsetTime(timings.GetProperty(prayerName).ToString(), offset);
-            Console.WriteLine($"{prayerName}: {adjustedTime}");
+            string prayerUrl = $"https://www.ummahapi.com/api/prayer-times?lat={lat}&lng={lon}&madhab={sect}&method=MuslimWorldLeague";
+
+            string prayerJson = await client.GetStringAsync(prayerUrl);
+            JsonElement prayerDoc = JsonDocument.Parse(prayerJson).RootElement;
+            JsonElement timings = prayerDoc.GetProperty("data").GetProperty("prayer_times");
+
+            Console.WriteLine($"\nDetected Location: {location.GetCity()}, {location.GetCountryName()}");
+            Console.WriteLine($"Latitude: {lat}, Longitude: {lon}");
+            Console.WriteLine("\nPrayer Times:");
+
+            foreach (Salah salah in Enum.GetValues<Salah>())
+            {
+                string prayerName = salah.ToString();
+                string adjustedTime = offsetTime(timings.GetProperty(prayerName).ToString(), offset);
+                Console.WriteLine($"{prayerName}: {adjustedTime}");
+            }
+            Console.WriteLine("\nNote: " + prayerDoc.GetProperty("data").GetProperty("islamic_info").GetProperty("note").GetString());
         }
-        Console.WriteLine("\nNote: " + prayerDoc.GetProperty("data").GetProperty("islamic_info").GetProperty("note").GetString());
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error fetching prayer times: " + ex.Message);
+        }
 
         Console.WriteLine("\nPress any key to exit...".Pastel(Color.Red));
         Console.ReadKey();

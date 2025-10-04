@@ -39,12 +39,16 @@ A simple C# app to fetch **Namaz / Prayer Times** for a given location using API
 
    Or run the compiled executable from `/bin/Debug/...` or `/bin/Release/...`.
 
-## 📦 Publish for Windows (to share with your bestie)
+## 📦 Publish for Windows & Linux (to share with your bestie)
 
 You can create a single `.exe` (with .NET runtime bundled) so your Windows friend can run it without needing .NET installed:
 
 ```bash
 dotnet publish -c Release -r win-x64 --self-contained true /p:PublishSingleFile=true
+```
+and if your friend uses linux,
+```bash
+dotnet publish -c Release -r linux-x64 --self-contained true /p:PublishSingleFile=true
 ```
 
 Then share the generated `.exe` from `bin/Release/netX.X/win-x64/publish/`.

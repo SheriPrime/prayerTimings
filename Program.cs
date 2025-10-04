@@ -66,6 +66,7 @@ class Program
         string lon = double.Parse(location.GetLongitude()).ToString("0.0000");
 
         string sect = selectSect();
+        Console.Clear();
         try
         {
             string prayerUrl = $"https://www.ummahapi.com/api/prayer-times?lat={lat}&lng={lon}&madhab={sect}&method=MuslimWorldLeague";
@@ -76,6 +77,7 @@ class Program
 
             Console.WriteLine($"\nDetected Location: {location.GetCity()}, {location.GetCountryName()}");
             Console.WriteLine($"Latitude: {lat}, Longitude: {lon}");
+            Console.WriteLine("\nIslamic Sect: " + sect);
             Console.WriteLine("\nPrayer Times:");
 
             foreach (Salah salah in Enum.GetValues<Salah>())
